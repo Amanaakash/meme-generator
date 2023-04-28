@@ -1,16 +1,26 @@
-import React from "react";
-import memesData from "./memesData"
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function Meme(){
+    const [memesData, setMemesData] = useState([]);
 
-    const [meme , setMeme] = React.useState({
+    const [meme , setMeme] = useState({
         topText:"",
         bottomText:"",
         randomImage:"http://i.imgflip.com/1bij.jpg"
-    })
+    });
+
+    useEffect(() => {
+        const fetchMemes = async () => {
+            const response = await axios.get('https://api.imgflip.com/get_memes');
+            console.log(response.data);
+            setMemesData(response.data.data.memes);
+        }
+        fetchMemes();
+    }, [])
 
     function getNewUrl(){
-        const memesArray = memesData.data.memes;
+        const memesArray = memesData;
         let randomIndex = Math.floor(Math.random() * memesArray.length)
         let newUrl = memesArray[randomIndex].url
 

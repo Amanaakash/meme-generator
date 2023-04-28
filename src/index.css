@@ -5,16 +5,22 @@
 }
 
 body{
-  max-width:800px;
+  margin-top: 1rem !important;
+  width:700px;
   font-family: "Karla", sans-serif;
   margin: auto;
   height:auto;
   box-sizing: border-box;
   border:black solid;
+  background:linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(130, 238, 235, 1) 91%);
 }
 
 .main{
   padding: 36px;
+}
+
+.main-container{
+  background-image: radial-gradient( circle 763px at 18.3% 24.1%,  rgba(255,249,137,1) 7.4%, rgba(226,183,40,1) 58.3% );
 }
 
 .header{
